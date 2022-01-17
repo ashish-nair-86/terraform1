@@ -4,6 +4,10 @@ pipeline {
     tools {
         terraform 'terraform'
     }
+    environment {
+        ACCESS_KEY = credentials('AWS_ACCESS_KEY_ID')
+        SECRET_KEY = credentials('AWS_SECRET_KEY')
+    }
     stages {
         stage ("terraform init") {
             steps {
