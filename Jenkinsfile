@@ -4,10 +4,6 @@ pipeline {
     tools {
         terraform 'terraform'
     }
-    environment {
-        ACCESS_KEY = credentials('AWS_ACCESS_KEY_ID')
-        SECRET_KEY = credentials('AWS_SECRET_KEY')
-    }
     stages {
         stage ("terraform init") {
             steps {
@@ -27,7 +23,7 @@ pipeline {
         stage ("terrafrom plan") {
             steps {
                 dir('testing-terraform') {
-                 sh 'terraform plan -var "access_key=$ACCESS_KEY" -var "secret_key=$SECRET_KEY"' 
+                 sh 'terraform plan' 
                      }
             }
         }
