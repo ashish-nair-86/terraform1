@@ -26,12 +26,12 @@ pipeline {
         }
         stage ("terrafrom plan") {
             steps {
-                sh 'terraform plan -var 'access_key=$ACCESS_KEY' -var 'secret_key=$SECRET_KEY' -out terraform.tfplan'
+                sh 'terraform plan '
             }
         }
         stage ("terraform apply") {
             steps {
-                sh 'terraform apply terraform.tfplan --auto-approve'
+                sh 'terraform apply --auto-approve'
             }
         }
     }
