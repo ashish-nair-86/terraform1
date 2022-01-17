@@ -22,10 +22,8 @@ pipeline {
         }
         stage ("terrafrom plan") {
             steps {
-                dir('testing-terraform') {
                  sh 'terraform plan' 
                      }
-            }
         }
         stage ("terraform apply") {
             steps {
