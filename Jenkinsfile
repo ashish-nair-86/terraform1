@@ -26,7 +26,7 @@ pipeline {
         }
         stage ("terrafrom plan") {
             steps {
-                sh 'terraform plan -var "access_key=$ACCESS_KEY" -var -var "secret_key=$SECRET_KEY"' 
+                sh 'terraform plan -var "access_key=$ACCESS_KEY" -var -var "secret_key=$SECRET_KEY" -out terraform.tfplan' 
             }
         }
         stage ("terraform apply") {
