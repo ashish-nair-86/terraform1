@@ -31,7 +31,7 @@ pipeline {
         }
         stage ("terraform apply") {
             steps {
-                sh 'terraform apply terraform.tfplan--auto-approve'
+                sh 'terraform apply terraform.tfplan --auto-approve'
             }
         }
     }
