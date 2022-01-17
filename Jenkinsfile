@@ -22,12 +22,12 @@ pipeline {
         }
         stage ("terrafrom plan") {
             steps {
-                 sh 'terraform plan' 
+                 sh 'terraform plan -out terraform.tfplan' 
                      }
         }
         stage ("terraform apply") {
             steps {
-                sh 'terraform apply --auto-approve'
+                sh 'terraform apply terraform.tfplan --auto-approve'
             }
         }
     }
